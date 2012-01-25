@@ -42,7 +42,7 @@ class EventLogger extends StopWatchEventListener {
  *     }
  *
  * In this case, EventLogger is used as the default StopWatchEventListener,
- * and it put a log entry through SLF4J "stopwatch" category.
+ * and it puts a log entry through SLF4J "stopwatch" category.
  *
  * You can start and stop explicitly::
  *
