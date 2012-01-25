@@ -30,7 +30,13 @@ object MyBuild extends Build {
     organization := "net.physalis",
     crossScalaVersions := Seq("2.9.0", "2.9.0-1", "2.9.1"),
     scalaVersion := "2.9.1",
-    scalacOptions ++= Seq("-Xcheckinit", "-encoding", "utf8")
+    scalacOptions ++= Seq("-Xcheckinit", "-encoding", "utf8"),
+    publishTo <<= (version) { version: String =>
+      val local = Path.userHome / "projects" / "akr4.github.com" / "mvn-repo"
+      val path = local / (if (version.trim.endsWith("SNAPSHOT")) "snapshots" else "releases")
+      Some(Resolver.file("Github Pages", path)(Patterns(true, Resolver.mavenStyleBasePattern)))
+    },
+    publishMavenStyle := true
   )
 
   val loggingDependencies = Seq(
