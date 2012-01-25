@@ -61,7 +61,7 @@ stop() method takes extra information as its arguments. It is useful to record t
 
 StopWatchEventListener
 -------------------------
-StopWatchEventListener is a instance to get callback from StopWatch at events. You can customize StopWatch behavior by using your own StopWatchEventListener.
+StopWatchEventListener is an instance to get callback from StopWatch at events. You can customize StopWatch behavior by using your own StopWatchEventListener.
 
 StopWatchEventListner::
 
