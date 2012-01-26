@@ -26,7 +26,7 @@ object MyBuild extends Build {
     (shellPrompt := { s => Project.extract(s).currentProject.id + "> " })
 
   val buildSettings = Defaults.defaultSettings ++ Seq(
-    version := "1.0",
+    version := "1.1",
     organization := "net.physalis",
     crossScalaVersions := Seq("2.9.0", "2.9.0-1", "2.9.1"),
     scalaVersion := "2.9.1",
