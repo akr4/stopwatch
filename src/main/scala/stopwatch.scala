@@ -59,7 +59,7 @@ class StopWatch private (val id: String, listener: StopWatchEventListener) {
 
   /** start the timer */
   def start(taskName: String) {
-    currentSection = Some(Section(taskName, System.currentTimeMillis))
+    currentSection = Option(Section(taskName, System.currentTimeMillis))
   }
 
   /** stop and call back to listener
