@@ -27,7 +27,7 @@ class EventLogger extends StopWatchEventListener {
 
   def onStop(id: String, section: Section, info: Any*) {
     val elapsed = System.currentTimeMillis - section.startTime
-    logger.info(List(id, section.taskName, elapsed).mkString("\t"))
+    logger.info((List(id, section.taskName, elapsed) ++ info).mkString("\t"))
   }
 }
 
