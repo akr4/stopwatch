@@ -27,7 +27,7 @@ class EventLogger extends StopWatchEventListener {
 
   def onStop(id: String, section: Section, info: Any*) {
     val elapsed = System.currentTimeMillis - section.startTime
-    logger.info(List(id, section.taskName, elapsed).mkString("\t"))
+    logger.info((List(id, section.taskName, elapsed) ++ info).mkString("\t"))
   }
 }
 
@@ -41,8 +41,8 @@ class EventLogger extends StopWatchEventListener {
  *       // do something
  *     }
  *
- * In thie case, EventLogger is used as the default StopWatchEventListener,
- * and it put a log entry through SLF4J "stopwatch" category.
+ * In this case, EventLogger is used as the default StopWatchEventListener,
+ * and it puts a log entry through SLF4J "stopwatch" category.
  *
  * You can start and stop explicitly::
  *
@@ -59,7 +59,7 @@ class StopWatch private (val id: String, listener: StopWatchEventListener) {
 
   /** start the timer */
   def start(taskName: String) {
-    currentSection = Some(Section(taskName, System.currentTimeMillis))
+    currentSection = Option(Section(taskName, System.currentTimeMillis))
   }
 
   /** stop and call back to listener
