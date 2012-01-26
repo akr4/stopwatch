@@ -6,6 +6,8 @@ Getting Started
 ----------------
 add the repository and the dependency to your build.sbt::
 
+.. code-block: scala
+
     resolvers ++= Seq(
       "akr4.github.com releases" at "http://akr4.github.com/mvn-repo/releases"
     )
@@ -17,6 +19,8 @@ add the repository and the dependency to your build.sbt::
 How To Use
 --------------
 example::
+
+.. code-block: scala
 
     import net.physalis.stopwatch._
     
@@ -34,15 +38,21 @@ There are two ways to choose other StopWatchEventListener.
 
 a. pass it explicitly::
 
+.. code-block: scala
+
     val s = StopWatch.newOne(new MyEventListener)
 
 b. use implicit parameter::
+
+.. code-block: scala
 
     implicit val listener = new MyEventListener
     
     val s = StopWatch.newOne
 
 You can start and stop explicitly::
+
+.. code-block: scala
 
     val s = StopWatch.newOne
     s.start("task1")
@@ -51,6 +61,8 @@ You can start and stop explicitly::
 Extra Information
 -------------------------
 stop() method takes extra information as its arguments. It is useful to record the prameters or the result of the process, and so forth::
+
+.. code-block: scala
 
     val s = StopWatch.newOne
     s.start("task1")
@@ -65,6 +77,8 @@ StopWatchEventListener is an instance to get callback from StopWatch at events. 
 
 StopWatchEventListner::
 
+.. code-block: scala
+
     trait StopWatchEventListener {
       def onStop(id: String, section: Section, info: Any*)
     }
@@ -73,6 +87,8 @@ Examples
 ~~~~~~~~~~~~~~~
 Write to DB::
 
+.. code-block: scala
+
     class DbLogger extends StopWatchEventListener {
       def onStop(id: String, section: Section, info: Any*) {
         db.insert(id, section, info:_*)
@@ -80,6 +96,8 @@ Write to DB::
     }
 
 Stores statistics in memory::
+
+.. code-block: scala
 
     class StatisticsEventListener extends StopWatchEventListener {
       def onStop(id: String, section: Section, info: Any*) {
