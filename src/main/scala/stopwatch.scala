@@ -31,11 +31,12 @@ class EventLogger extends StopWatchEventListener {
   }
 }
 
-/** StopWatch to measure elapsed times in codes
+/**
+ * StopWatch to measure elapsed times in codes
  *
  * {{{
  * example::
- * 
+ *
  *     val s = StopWatch.newOne
  *     s.doWith("task1") {
  *       // do something
@@ -62,12 +63,13 @@ class StopWatch private (val id: String, listener: StopWatchEventListener) {
     currentSection = Option(Section(taskName, System.currentTimeMillis))
   }
 
-  /** stop and call back to listener
+  /**
+   * stop and call back to listener
    *
    * @param info extra information for listener
    */
   def stop(info: Any*) {
-    currentSection.map { listener.onStop(id, _, info:_*) }
+    currentSection.map { listener.onStop(id, _, info: _*) }
   }
 
   /** stop and start */
