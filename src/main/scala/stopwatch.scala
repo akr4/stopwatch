@@ -35,7 +35,7 @@ class EventLogger extends StopWatchEventListener {
  *
  * {{{
  * example::
- * 
+ *
  *     val s = StopWatch.newOne
  *     s.doWith("task1") {
  *       // do something
@@ -67,7 +67,7 @@ class StopWatch private (val id: String, listener: StopWatchEventListener) {
    * @param info extra information for listener
    */
   def stop(info: Any*) {
-    currentSection.map { listener.onStop(id, _, info:_*) }
+    currentSection.map { listener.onStop(id, _, info: _*) }
   }
 
   /** stop and start */
