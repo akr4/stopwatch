@@ -31,7 +31,8 @@ class EventLogger extends StopWatchEventListener {
   }
 }
 
-/** StopWatch to measure elapsed times in codes
+/**
+ * StopWatch to measure elapsed times in codes
  *
  * {{{
  * example::
@@ -62,7 +63,8 @@ class StopWatch private (val id: String, listener: StopWatchEventListener) {
     currentSection = Option(Section(taskName, System.currentTimeMillis))
   }
 
-  /** stop and call back to listener
+  /**
+   * stop and call back to listener
    *
    * @param info extra information for listener
    */

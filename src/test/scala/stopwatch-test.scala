@@ -83,8 +83,8 @@ class StopWatchSuite extends FunSuite with MockFactory with ProxyMockFactory wit
     implicit val logger = mock[StopWatchEventListener]
     logger expects 'onStop where { (id: String, s: Section, info: Seq[Any]) =>
       id == "id" &&
-      s.taskName == "task1" &&
-      info == Seq("aaa", 111, 'AAA)
+        s.taskName == "task1" &&
+        info == Seq("aaa", 111, 'AAA)
     }
 
     val s = StopWatch("id")
